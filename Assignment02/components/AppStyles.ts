@@ -42,6 +42,12 @@ const AppStyles = StyleSheet.create({
   activeTab: {
     backgroundColor: '#e0e0e0'
   },
+  backLink: {
+    fontSize: 16,
+    color: '#555',
+    textDecorationLine: 'underline',
+    marginTop: 8,
+  },
   tabText: {
     fontSize: 16,
     color: '#555'
