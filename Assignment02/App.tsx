@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Button } from 'react-native';
+
+import SignIn from './components/SignIn';
+import HomeTabs from './pages/HomeTabs'; // adjust this path to wherever your HomeTabs actually lives
 
 export default function App() {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {isSignedIn
+        ? <HomeTabs />
+        : <SignIn setIsSignedIn={setIsSignedIn} />
+      }
+      {/* This button is just for testing purposes to allow signing out. */}
+      <Button
+        title="Sign Out"
+        onPress={() => setIsSignedIn(false)}
+      /> 
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  container: { flex: 1 }
 });
