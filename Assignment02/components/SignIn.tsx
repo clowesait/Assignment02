@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import credentialsData from '../data/credentials.json'; 
+import { SigninStyles } from './AppStyles';
 
 type SignInProps = {
   setIsSignedIn: (signedIn: boolean) => void;
@@ -44,11 +45,11 @@ export default function SignIn({ setIsSignedIn }: SignInProps) {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Sign In</Text>
+    <View style={SigninStyles.container}>
+      <Text style={SigninStyles.title}>Sign In</Text>
 
       <TextInput
-        style={styles.input}
+        style={SigninStyles.input}
         placeholder="Username"
         autoCapitalize="none"
         value={username}
@@ -56,7 +57,7 @@ export default function SignIn({ setIsSignedIn }: SignInProps) {
       />
 
       <TextInput
-        style={styles.input}
+        style={SigninStyles.input}
         placeholder="Password"
         secureTextEntry
         value={password}
@@ -67,25 +68,3 @@ export default function SignIn({ setIsSignedIn }: SignInProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1, 
-    justifyContent: 'center', 
-    padding: 20, 
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 24, 
-    marginBottom: 16, 
-    textAlign: 'center'
-  },
-  input: {
-    height: 40, 
-    borderColor: '#ccc', 
-    borderWidth: 1,
-    borderRadius: 4, 
-    paddingHorizontal: 8, 
-    marginBottom: 12
-  }
-});

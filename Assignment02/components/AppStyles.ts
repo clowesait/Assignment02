@@ -51,4 +51,27 @@ const AppStyles = StyleSheet.create({
   },
 });
 
+export const SigninStyles = StyleSheet.create({
+    container: {
+    flex: 1, 
+    justifyContent: 'center', 
+    padding: 20, 
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 24, 
+    marginBottom: 16, 
+    textAlign: 'center'
+  },
+  input: {
+    height: 40, 
+    borderColor: '#ccc', 
+    borderWidth: 1,
+    borderRadius: 4, 
+    paddingHorizontal: 8, 
+    marginBottom: 12
+  }
+})
+
+
 export default AppStyles;
