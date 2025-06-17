@@ -52,6 +52,37 @@ const AppStyles = StyleSheet.create({
   activeText: {
     color: '#000'
   },
+  backButton: {
+    marginTop: 20,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: '#ADD8E6',
+    borderRadius: 6,
+    alignSelf: 'center',
+    borderColor: '#000',
+    borderWidth: 1,
+  },
+
+  backButtonText: {
+    color: '#000',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  imageRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 12, // for spacing if supported
+    marginTop: 16,
+    marginBottom: 16,
+  },
+
+thumbnail: {
+  width: 150,
+  height: 100,
+  resizeMode: 'cover',
+  borderRadius: 8,
+  marginHorizontal: 6, // use this if `gap` isn’t supported
+},
 });
 
 export const SigninStyles = StyleSheet.create({
