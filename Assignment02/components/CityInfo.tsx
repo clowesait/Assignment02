@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
+import { CityStyles } from './AppStyles'; // Adjust the import path as necessary
 
 interface CityInfoProps {
   city: 'Calgary' | 'Vancouver';
@@ -16,14 +17,7 @@ export default function CityInfo({ city }: CityInfoProps) {
       It's nestled between the Pacific Ocean and the Coast Mountains, offering residents and visitors access to both urban amenities and outdoor recreation.`
   };
 
-  return <Text style={styles.text}>{descriptions[city]}</Text>;
+  return <Text style={CityStyles.text}>{descriptions[city]}</Text>;
 }
 
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 16,
-    lineHeight: 22,
-    textAlign: 'center',
-    marginTop: 10,
-  },
-});
+

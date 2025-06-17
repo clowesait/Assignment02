@@ -12,6 +12,7 @@ const AppStyles = StyleSheet.create({
   },
   header: {
     fontSize: 24,
+    marginTop: 40,
     fontWeight: 'bold',
     marginVertical: 12,
     textAlign: 'center'
@@ -20,7 +21,9 @@ const AppStyles = StyleSheet.create({
     width: '100%',
     height: 200,
     borderRadius: 8,
-    marginBottom: 12
+    marginBottom: 12,
+    borderColor: '#000',
+    borderWidth: 1,
   },
   text: {
     fontSize: 16,
@@ -52,7 +55,7 @@ const AppStyles = StyleSheet.create({
 });
 
 export const SigninStyles = StyleSheet.create({
-    container: {
+  container: {
     flex: 1, 
     justifyContent: 'center', 
     padding: 20, 
@@ -64,14 +67,43 @@ export const SigninStyles = StyleSheet.create({
     textAlign: 'center'
   },
   input: {
-    height: 40, 
+    height: 40,
+    width: 280,
+    marginLeft: 31,
     borderColor: '#ccc', 
     borderWidth: 1,
     borderRadius: 4, 
     paddingHorizontal: 8, 
     marginBottom: 12
+  },
+  button: {
+    backgroundColor: '#007BFF',
+    alignSelf: 'center',
+    borderRadius: 9999,
+    padding: 8,
+    fontSize: 16,
+    color: '#fff',
+    textAlign: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
+    textAlign: 'center',
   }
 })
+
+export const CityStyles = StyleSheet.create({
+  text: {
+    fontSize: 16,
+    lineHeight: 22,
+    textAlign: 'center',
+    marginTop: 20,
+    borderColor: '#000',
+    borderWidth: 1,
+    borderRadius: 4,
+    backgroundColor: '#87CEEB',
+  },
+});
 
 
 export default AppStyles;
