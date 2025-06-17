@@ -70,13 +70,22 @@ export default function SignIn({ setIsSignedIn }: SignInProps) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, justifyContent: 'center', padding: 20, backgroundColor: '#fff'
+    flex: 1, 
+    justifyContent: 'center', 
+    padding: 20, 
+    backgroundColor: '#fff',
   },
   title: {
-    fontSize: 24, marginBottom: 16, textAlign: 'center'
+    fontSize: 24, 
+    marginBottom: 16, 
+    textAlign: 'center'
   },
   input: {
-    height: 40, borderColor: '#ccc', borderWidth: 1,
-    borderRadius: 4, paddingHorizontal: 8, marginBottom: 12
+    height: 40, 
+    borderColor: '#ccc', 
+    borderWidth: 1,
+    borderRadius: 4, 
+    paddingHorizontal: 8, 
+    marginBottom: 12
   }
 });

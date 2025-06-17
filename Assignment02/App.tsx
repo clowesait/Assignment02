@@ -14,10 +14,10 @@ export default function App() {
         : <SignIn setIsSignedIn={setIsSignedIn} />
       }
       {/* This button is just for testing purposes to allow signing out. */}
-      <Button
+      {/* <Button
         title="Sign Out"
         onPress={() => setIsSignedIn(false)}
-      /> 
+      />  */}
     </View>
   );
 }
