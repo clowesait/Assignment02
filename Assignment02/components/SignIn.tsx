@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import credentialsData from '../data/credentials.json'; 
 import { SigninStyles } from './AppStyles';
+import { TouchableOpacity } from 'react-native';
 
 type SignInProps = {
   setIsSignedIn: (signedIn: boolean) => void;
@@ -63,7 +64,6 @@ export default function SignIn({ setIsSignedIn }: SignInProps) {
         value={password}
         onChangeText={setPassword}
       />
-
       <TouchableOpacity style={SigninStyles.button} onPress={handleSignIn}>
         <Text style={SigninStyles.buttonText}>Sign In</Text>
       </TouchableOpacity>

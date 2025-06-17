@@ -62,7 +62,6 @@ const AppStyles = StyleSheet.create({
     borderColor: '#000',
     borderWidth: 1,
   },
-
   backButtonText: {
     color: '#000',
     fontSize: 16,
@@ -135,6 +134,5 @@ export const CityStyles = StyleSheet.create({
     backgroundColor: '#87CEEB',
   },
 });
-
 
 export default AppStyles;
