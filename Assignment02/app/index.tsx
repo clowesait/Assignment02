@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 
-import SignIn from './components/SignIn';
-import HomeTabs from './pages/HomeTabs'; // adjust this path to wherever your HomeTabs actually lives
+import SignIn from '../components/SignIn';
+import HomeTabs from './HomeTabs';
 
 export default function App() {
   const [isSignedIn, setIsSignedIn] = useState(false);

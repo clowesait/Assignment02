@@ -1,7 +1,4 @@
 // App.tsx
-import React from 'react';
-import { ExpoRouter } from 'expo-router';
+// @ts-ignore
+export { default } from 'expo-router/entry';
 
-export default function App() {
-  return <ExpoRouter />;
-}

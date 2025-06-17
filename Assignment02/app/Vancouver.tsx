@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, Text, Image, ScrollView } from 'react-native';
-import CityInfo from '../components/CityInfo';
+import { ScrollView, Text, Image } from 'react-native';
 import AppStyles from '../components/AppStyles';
 import CityLink from '../components/CityLink';
+import CityInfo from '../components/CityInfo';
 import { Link } from 'expo-router';
 
-export default function Calgary() {
+export default function Vancouver() {
   return (
-    <ScrollView contentContainerStyle={AppStyles.screen}>
+        <ScrollView contentContainerStyle={AppStyles.screen}>
       <Text style={AppStyles.header}>Welcome to Calgary</Text>
       <Image source={require('../assets/Vancouver.jpg')} style={AppStyles.image} />
       <CityLink link="https://vancouver.ca" />
@@ -16,7 +16,5 @@ export default function Calgary() {
         ← Back Home
       </Link>
     </ScrollView>
-    
   );
-  
 }
