@@ -62,12 +62,6 @@ const AppStyles = StyleSheet.create({
     borderColor: '#000',
     borderWidth: 1,
   },
-    backLink: {
-    fontSize: 16,
-    color: '#555',
-    textDecorationLine: 'underline',
-    marginTop: 8,
-  },
   backButtonText: {
     color: '#000',
     fontSize: 16,
