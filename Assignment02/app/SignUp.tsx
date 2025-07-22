@@ -15,6 +15,18 @@ export default function SignUp({ navigation }: any) {
       return Alert.alert('Error', 'All fields are required.');
     }
 
+    if (password.length < 6) {
+      return Alert.alert('Error', 'Password must be at least 6 characters long.');
+    }
+
+    if (!email.includes('@')) {
+      return Alert.alert('Error', 'Please enter a valid email address.');
+    }
+
+    if (!/^[a-zA-Z]+$/.test(firstName) || !/^[a-zA-Z]+$/.test(lastName)) {
+      return Alert.alert('Error', 'First and Last names must contain only letters.');
+    }
+
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
