@@ -17,7 +17,9 @@ export default function HomeTabs({ userFullName, setIsSignedIn }: HomeTabsProps)
         <Text style={styles.description}>
           Explore the beauty of Calgary and Vancouver, two of Canada's most vibrant cities.
         </Text>
-        <Button title="Sign Out" onPress={() => setIsSignedIn(false)} />
+        <TouchableOpacity style={styles.signOut} onPress={() => setIsSignedIn(false)}>
+          <Text>Sign Out</Text>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.navBar}>
@@ -40,6 +42,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   content: {
+    borderWidth: 1,
+    borderColor: '#ccc',
     flex: 1,
     padding: 16,
     justifyContent: 'center',
@@ -71,5 +75,15 @@ const styles = StyleSheet.create({
   tabText: {
     fontSize: 16,
     color: '#007AFF',
+  },
+  signOut: {
+    marginTop: 20,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: '#ADD8E6',
+    borderRadius: 6,
+    alignSelf: 'center',
+    borderColor: '#000',
+    borderWidth: 1,
   },
 });

@@ -43,7 +43,7 @@ export default function SignIn({ setIsSignedIn, setUserFullName }: SignInProps) 
 
   return (
     <View style={SigninStyles.container}>
-      <Text style={SigninStyles.title}>Sign In</Text>
+      <Text style={SigninStyles.title}>Welcome!</Text>
 
       <TextInput
         style={SigninStyles.input}
@@ -66,7 +66,7 @@ export default function SignIn({ setIsSignedIn, setUserFullName }: SignInProps) 
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => router.push('/SignUp')}>
-        <Text style={{ marginTop: 12, color: 'blue' }}>Don't have an account? Sign up</Text>
+        <Text style={SigninStyles.signUpText}>Don't have an account? Sign up</Text>
       </TouchableOpacity>
     </View>
   );

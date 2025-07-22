@@ -88,8 +88,11 @@ export const SigninStyles = StyleSheet.create({
   container: {
     flex: 1, 
     justifyContent: 'center', 
-    padding: 20, 
     backgroundColor: '#fff',
+    padding: 16,
+    marginBottom: 64,
+    borderWidth: 1,
+    borderColor: '#ccc',
   },
   title: {
     fontSize: 24, 
@@ -107,18 +110,24 @@ export const SigninStyles = StyleSheet.create({
     marginBottom: 12
   },
   button: {
-    backgroundColor: '#007BFF',
+    width: 280,
+    marginLeft: 15,
+    paddingVertical: 8,
+    backgroundColor: '#ADD8E6',
+    borderRadius: 6,
     alignSelf: 'center',
-    borderRadius: 9999,
-    padding: 8,
-    fontSize: 16,
-    color: '#fff',
-    textAlign: 'center',
+    borderColor: '#ccc',
+    borderWidth: 1,
   },
   buttonText: {
-    color: 'white',
     fontSize: 18,
     textAlign: 'center',
+  },
+  signUpText:{
+    textAlign: 'center',
+    marginTop: 12, 
+    color: 'blue' 
+
   }
 })
 
