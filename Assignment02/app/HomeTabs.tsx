@@ -1,37 +1,38 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, Button } from 'react-native';
 import { useRouter } from 'expo-router';
 
-export default function HomeTabs() {
+type HomeTabsProps = {
+  userFullName: string;
+  setIsSignedIn: (signedIn: boolean) => void;
+};
+
+export default function HomeTabs({ userFullName, setIsSignedIn }: HomeTabsProps) {
   const router = useRouter();
 
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.welcome}>Welcome to My New App</Text>
+        <Text style={styles.welcome}>Welcome, {userFullName}</Text>
         <Text style={styles.description}>
           Explore the beauty of Calgary and Vancouver, two of Canada's most vibrant cities.
         </Text>
+        <Button title="Sign Out" onPress={() => setIsSignedIn(false)} />
       </View>
 
       <View style={styles.navBar}>
-        <TouchableOpacity
-          style={styles.tab}
-          onPress={() => router.push('/Calgary')}
-        >
+        <TouchableOpacity style={styles.tab} onPress={() => router.push('/Calgary')}>
           <Text style={styles.tabText}>Calgary</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.tab}
-          onPress={() => router.push('/Vancouver')}
-        >
+        <TouchableOpacity style={styles.tab} onPress={() => router.push('/Vancouver')}>
           <Text style={styles.tabText}>Vancouver</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
