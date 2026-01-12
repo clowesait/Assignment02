@@ -1,60 +1,56 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
-import credentialsData from '../data/credentials.json'; 
-import { SigninStyles } from './AppStyles';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, Alert, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native';
+import { supabase } from '../lib/supabaseClient';
+import { SigninStyles } from './AppStyles';
+import { useRouter } from 'expo-router';
 
 type SignInProps = {
   setIsSignedIn: (signedIn: boolean) => void;
+  setUserFullName: (name: string) => void;
 };
 
-export default function SignIn({ setIsSignedIn }: SignInProps) {
-  const [username, setUsername] = useState('');
+export default function SignIn({ setIsSignedIn, setUserFullName }: SignInProps) {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
-  const validateEmail = (username: string) => {
-    if  (username.length < 5) {
-      return false; // Username must be at least 5 characters long
-    } else{
-      return true;
-    }
-  };
-  const validatePassword = (password: string) => {
-    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-    return re.test(password);
-  };
+  const handleSignIn = async () => {
+    const { error, data } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-  const handleSignIn = () => {
-
-    if (!validateEmail(username)) {
-      return Alert.alert('Error', 'Username must be at least 5 characters long.');
-    }
-    if (!validatePassword(password)) {
-      return Alert.alert('Error', 'Password must contain at least 8 characters, including uppercase, lowercase, numbers, and special characters.');
+    if (error) {
+      return Alert.alert('Error', error.message);
     }
 
-    const user = credentialsData.users.find(
-      u => u.username === username && u.password === password
-    );
+    const { user } = data;
 
-    if (user) {
-      Alert.alert('Success', 'You are signed in!');
-      setIsSignedIn(true);
-    } else {
-      Alert.alert('Error', 'User not found.');
+    const { data: userData, error: userError } = await supabase
+      .from('user_details')
+      .select('first_name, last_name')
+      .eq('uuid', user.id)
+      .single();
+
+    if (userError || !userData) {
+      return Alert.alert('Error', 'Failed to fetch user details.');
     }
+
+    setUserFullName(`${userData.first_name} ${userData.last_name}`);
+    setIsSignedIn(true);
   };
 
   return (
     <View style={SigninStyles.container}>
-      <Text style={SigninStyles.title}>Sign In</Text>
+      <Text style={SigninStyles.title}>Welcome!</Text>
 
       <TextInput
         style={SigninStyles.input}
-        placeholder="Username"
+        placeholder="Email"
         autoCapitalize="none"
-        value={username}
-        onChangeText={setUsername}
+        value={email}
+        onChangeText={setEmail}
       />
 
       <TextInput
@@ -64,8 +60,13 @@ export default function SignIn({ setIsSignedIn }: SignInProps) {
         value={password}
         onChangeText={setPassword}
       />
+
       <TouchableOpacity style={SigninStyles.button} onPress={handleSignIn}>
         <Text style={SigninStyles.buttonText}>Sign In</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => router.push('/SignUp')}>
+        <Text style={SigninStyles.signUpText}>Don't have an account? Sign up</Text>
       </TouchableOpacity>
     </View>
   );
